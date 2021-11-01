@@ -36,7 +36,7 @@ Renderer::Renderer(const std::size_t sim_width, const std::size_t info_width,
 
   // Load font
   std::string font_path = package_path + "/fonts/NotoSansMono-SemiBold.ttf";
-	font = TTF_OpenFont(font_path.c_str(), 30);
+	font = TTF_OpenFont(font_path.c_str(), 20);
 	if ( !font ) {
 		std::cerr << "Error loading font: " << TTF_GetError() << "\n";
 	}
@@ -75,24 +75,30 @@ void Renderer::RenderSpeedDisplay(Velocity velocity, Position position)
   std::string str = "VELOCITY ";
   SDL_Point text_position = {10, 10};
   RenderText(str,text_position,color);
-  str = "Linear: " + to_string(velocity.linear);
+  str = "Linear: " ;
   text_position = {10, 60};
   RenderText(str,text_position,color);
-  str = "Angular: " + to_string(velocity.angular);
-  text_position = {10, 120};
+  str = to_string(velocity.linear);
+  text_position = {10, 110};
+  RenderText(str,text_position,color);
+  str = "Angular: " ;
+  text_position = {10, 170};
+  RenderText(str,text_position,color);
+  str = to_string(velocity.angular);
+  text_position = {10, 220};
   RenderText(str,text_position,color);
 
   str = "POSITION ";
-  text_position = {10, 200};
+  text_position = {10, 300};
   RenderText(str,text_position,color);
   str = "X: " + to_string(position.x);
-  text_position = {10, 260};
+  text_position = {10, 360};
   RenderText(str,text_position,color);
   str = "Y: " + to_string(position.y);
-  text_position = {10, 320};
+  text_position = {10, 420};
   RenderText(str,text_position,color);
   str = "Z: " + to_string(position.z);
-  text_position = {10, 380};
+  text_position = {10, 480};
   RenderText(str,text_position,color);
 }
 

@@ -12,7 +12,7 @@ int main(int argc, char**argv) {
   constexpr std::size_t kMsPerFrame{1000 / kFramesPerSecond};
   constexpr std::size_t kSimWidth{750};
   constexpr std::size_t kScreenHeight{750};
-  constexpr std::size_t kInfoWidth{350};
+  constexpr std::size_t kInfoWidth{200};
   constexpr double maxLinearVel{10.0};
   constexpr double minLinearVel{-10.0};
   constexpr double maxAngularVel{1.0};
