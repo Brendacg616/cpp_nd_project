@@ -29,6 +29,9 @@ void Controller::HandleInput(bool &running, Robot &robot) const{
         case SDLK_RIGHT:
             DecreaseAngularVel(robot);
           break;
+        case SDLK_0:
+            StopRobot(robot);
+          break;
       }
     }
   }
@@ -52,4 +55,9 @@ void Controller::IncreaseAngularVel(Robot &robot) const
 void Controller::DecreaseAngularVel(Robot &robot) const
 {
   robot.DecreaseAngularVel(angular_step);
+}
+
+void Controller::StopRobot(Robot &robot) const
+{
+  robot.Stop();
 }

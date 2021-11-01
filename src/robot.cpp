@@ -59,6 +59,12 @@ bool Robot::DecreaseAngularVel(double step)
   }
 }
 
+void Robot::Stop()
+{
+  current_vel.linear = 0;
+  current_vel.angular = 0;
+}
+
 void Robot::GetVelocity(double &linear, double &angular) const
 {
   linear = current_vel.linear;

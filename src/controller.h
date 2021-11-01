@@ -15,6 +15,7 @@ class Controller {
   void DecreaseLinearVel (Robot &robot) const;
   void IncreaseAngularVel (Robot &robot) const;
   void DecreaseAngularVel (Robot &robot) const;
+  void StopRobot (Robot &robot) const;
 private:
   double linear_step;
   double angular_step;

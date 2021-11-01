@@ -23,6 +23,7 @@ class Robot
     bool DecreaseLinearVel(double step);
     bool IncreaseAngularVel(double step);
     bool DecreaseAngularVel(double step);
+    void Stop();
     void GetVelocity (double &linear, double &angular) const;
     void GetVelocity (Velocity &vel) const;
     void GetPosition (double &x, double &y, double &z) const;
