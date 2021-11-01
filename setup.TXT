@@ -1,0 +1,24 @@
+# FIRST TIME
+mkdir  -p /home/workspace/catkin_ws/src
+cd /home/workspace/catkin_ws/
+mv ../cpp_nd_project src/.
+cd src/cpp_nd_project src/
+chmod +x setup.sh
+./setup.sh 
+
+#Add new ROS pub key
+sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+sudo apt-key del 421C365BD9FF1F717815A3895523BAEEB01FA116
+#
+sudo apt-get install libsdl2-ttf-dev ros-kinetic-ros-controllers -y
+pip install pyyaml 
+cd /home/workspace/catkin_ws/
+catkin_make
+source devel/setup.bash
+
+#Populate /home/wosrkspace/.student_bashrc
+export PATH=/usr/bin:$PATH
+source /opt/ros/kinetic/setup.bash
+alias ss="source devel/setup.bash"
+
+
