@@ -10,8 +10,7 @@
               ns="diff_drive_controller" />
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner"
-    args="diff_drive_controller
-          --shutdown-timeout 3"/>
+    args="diff_drive_controller"/>
 
   <node name="odometry_simulator" pkg="cpp_nd_project" type="odometry_simulator" output="screen">
     <remap from="/cmd_vel" to="/diff_drive_controller/cmd_vel"/>
