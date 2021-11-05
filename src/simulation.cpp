@@ -5,11 +5,14 @@
 Simulation::Simulation (double min_linear, double max_linear,
   double min_angular, double max_angular): robot(min_linear, max_linear,
     min_angular, max_angular){
+      std::cout << "Simulation constructor" << std::endl;
       route = new std::deque<Position>;
+
     }
 
 void Simulation::Run(Controller const &controller, Renderer &renderer,
                std::size_t target_frame_duration, ROSManager & ros_manager) {
+  std::cout << "Simulation::Run function" << std::endl;
   Uint32 title_timestamp = SDL_GetTicks();
   Uint32 frame_start;
   Uint32 frame_end;
@@ -55,6 +58,7 @@ void Simulation::Update(ROSManager & ros_manager) {
   robot.GetVelocity(vel);
   ros_manager.PublishVelocity(vel.linear, vel.angular);
   ros_manager.GetPosition(pos.x, pos.y, pos.z);
+
   robot.SetPosition(pos);
   UpdateDeque();
   ros_manager.Spin();
@@ -62,11 +66,22 @@ void Simulation::Update(ROSManager & ros_manager) {
 
 void Simulation::UpdateDeque()
 {
-  Position pos;
+  Position pos, last_pos;
   robot.GetPosition(pos);
-  route->push_back(pos);
-  if (route->size() > 1000)
-    route->pop_front();
+  if (route->size()> 0)
+  {
+    last_pos =  route->back();
+    if (last_pos.x != pos.x || last_pos.y != pos.y || last_pos.z != pos.z)
+    {
+      route->push_back(pos);
+      if (route->size() > 1000)
+        route->pop_front();
+    }
+  }
+  else 
+  {
+    route->push_back(pos);
+  }
 }
 
 Simulation::~Simulation ()
