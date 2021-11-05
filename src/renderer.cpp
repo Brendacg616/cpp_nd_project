@@ -5,6 +5,7 @@ Renderer::Renderer(const std::size_t sim_width, const std::size_t info_width,
   sim_width(sim_width), info_width(info_width), screen_height(screen_height),
   package_path(pkg_path)
 {
+  std::cout << "Renderer constructor" << std::endl;
   // Initialize SDL
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     std::cerr << "SDL could not initialize.\n";
@@ -43,12 +44,14 @@ Renderer::Renderer(const std::size_t sim_width, const std::size_t info_width,
 }
 
 Renderer::~Renderer() {
+  std::cout << "Renderer destructor" << std::endl;
   SDL_DestroyWindow(sdl_window);
   SDL_Quit();
 }
 
 void Renderer::Render(const Robot &robot, const std::deque<Position> *route)
 {
+  //std::cout << "Renderer::Render function" << std::endl;
   SDL_Rect block;
   //
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
@@ -78,13 +81,13 @@ void Renderer::RenderSpeedDisplay(Velocity velocity, Position position)
   str = "Linear: " ;
   text_position = {10, 60};
   RenderText(str,text_position,color);
-  str = to_string(velocity.linear);
+  str = to_string(velocity.linear) +  " m/s";
   text_position = {10, 110};
   RenderText(str,text_position,color);
   str = "Angular: " ;
   text_position = {10, 170};
   RenderText(str,text_position,color);
-  str = to_string(velocity.angular);
+  str = to_string(velocity.angular) + " rad/s";
   text_position = {10, 220};
   RenderText(str,text_position,color);
 
@@ -134,7 +137,7 @@ void Renderer::RenderOdometryDisplay(const std::deque<Position> *route)
   RenderText(str, text_position, color);
   SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, SDL_ALPHA_OPAQUE);
   SDL_RenderDrawLine(sdl_renderer, info_width +1, screen_height/2 ,info_width + sim_width , screen_height/2);
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, SDL_ALPHA_OPAQUE);
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0x00, SDL_ALPHA_OPAQUE);
   for (auto it = route->begin(); it !=route->end(); ++it)
   {
       int x = (int)(-(it->y * 100) + info_width + sim_width/2);

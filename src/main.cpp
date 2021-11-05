@@ -13,8 +13,8 @@ int main(int argc, char**argv) {
   constexpr std::size_t kSimWidth{750};
   constexpr std::size_t kScreenHeight{750};
   constexpr std::size_t kInfoWidth{200};
-  constexpr double maxLinearVel{10.0};
-  constexpr double minLinearVel{-10.0};
+  constexpr double maxLinearVel{2.0};
+  constexpr double minLinearVel{-2.0};
   constexpr double maxAngularVel{1.0};
   constexpr double minAngularVel{-1.0};
   constexpr double linearStep{0.1};

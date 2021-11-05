@@ -4,7 +4,9 @@
 #include "robot.h"
 
 Controller::Controller(double linear_step, double angular_step):
-linear_step(linear_step), angular_step(angular_step){}
+linear_step(linear_step), angular_step(angular_step){
+  std::cout << "Controller constructor" << std::endl;
+}
 
 void Controller::HandleInput(bool &running, Robot &robot) const{
   SDL_Event e;
