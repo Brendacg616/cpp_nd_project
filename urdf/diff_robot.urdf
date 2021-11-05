@@ -97,7 +97,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="right_wheel"/>
-    <origin rpy="0 0 0" xyz="0 -0.3125 0.0"/>
+    <origin rpy="0 0 0" xyz="0 -0.3 0.0"/>
   </joint>
 
   <!-- This block connects the right_wheel joint to an actuator (motor), which informs both
@@ -136,7 +136,7 @@
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin rpy="0 0 0" xyz="0 0.3125 0.0"/>
+    <origin rpy="0 0 0" xyz="0 0.3 0.0"/>
   </joint>
   <!-- This block connects the left_wheel joint to an actuator (motor), which informs both
   simulation and visualization of the robot -->
