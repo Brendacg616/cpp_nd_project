@@ -5,3 +5,4 @@ ROS
 ros kinetic
 install SDL_ttf
 sudo apt-get install libsdl2-ttf-dev
+source /home/workspace/catkin_ws/devel/bash.sh
