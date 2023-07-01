@@ -1,3 +1,11 @@
+# cpp_nd_project
+## Project Description
+
+## Workspace configuration
+The configuration described below works for Udacity Desktop Workspace. 
+### ROS workspace setup
+Create a ROS Workspace by running the following commands:
+```
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/
 catkin_make
